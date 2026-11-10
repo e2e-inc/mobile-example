@@ -151,7 +151,7 @@ The workflow also runs on pull requests and pushes to `main`. You do not need to
 
 ## Running Tests in GitHub Actions
 
-This repo uses `.github/workflows/test-mobile-app.yml` to build the iOS simulator app and Android app, then run TesterArmy automatically with `tester-army/mobile-github-action`.
+This repo uses `.github/workflows/test-mobile-app.yml` to build the iOS simulator app and Android app, then run TesterArmy automatically with `e2e-inc/mobile-github-action`.
 
 ### 1. Add the required GitHub secrets
 
@@ -174,7 +174,7 @@ upload_ios:
     # Download or build .build/testerarmy.app first.
     - name: Upload app
       id: mobile
-      uses: tester-army/mobile-github-action@main
+      uses: e2e-inc/mobile-github-action@v1
       with:
         mode: upload
         app_path: .build/testerarmy.app
@@ -187,7 +187,7 @@ test_ios:
   runs-on: ubuntu-latest
   steps:
     - name: Run TesterArmy tests
-      uses: tester-army/mobile-github-action@main
+      uses: e2e-inc/mobile-github-action@v1
       with:
         mode: test
         app_id: ${{ needs.upload_ios.outputs.app_id }}
@@ -202,7 +202,7 @@ dynamic_ios:
   runs-on: ubuntu-latest
   steps:
     - name: Run dynamic PR agent
-      uses: tester-army/mobile-github-action@main
+      uses: e2e-inc/mobile-github-action@v1
       with:
         mode: dynamic_agent
         app_id: ${{ needs.upload_ios.outputs.app_id }}

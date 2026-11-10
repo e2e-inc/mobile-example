@@ -121,7 +121,7 @@ jobs:
 
       - name: Upload app
         id: mobile
-        uses: tester-army/mobile-github-action@main
+        uses: e2e-inc/mobile-github-action@v1
         with:
           mode: upload
           app_path: .build/testerarmy.app
@@ -137,7 +137,7 @@ jobs:
     steps:
       - name: Run TesterArmy tests
         id: mobile
-        uses: tester-army/mobile-github-action@main
+        uses: e2e-inc/mobile-github-action@v1
         with:
           mode: test
           app_id: ${{ needs.upload_ios.outputs.app_id }}
@@ -159,7 +159,7 @@ jobs:
     steps:
       - name: Run dynamic PR agent
         id: mobile
-        uses: tester-army/mobile-github-action@main
+        uses: e2e-inc/mobile-github-action@v1
         with:
           mode: dynamic_agent
           app_id: ${{ needs.upload_ios.outputs.app_id }}
@@ -190,7 +190,7 @@ jobs:
 
       - name: Upload app
         id: mobile
-        uses: tester-army/mobile-github-action@main
+        uses: e2e-inc/mobile-github-action@v1
         with:
           mode: upload
           app_path: .build/testerarmy.apk
@@ -206,7 +206,7 @@ jobs:
     steps:
       - name: Run TesterArmy tests
         id: mobile
-        uses: tester-army/mobile-github-action@main
+        uses: e2e-inc/mobile-github-action@v1
         with:
           mode: test
           app_id: ${{ needs.upload_android.outputs.app_id }}
@@ -228,7 +228,7 @@ jobs:
     steps:
       - name: Run dynamic PR agent
         id: mobile
-        uses: tester-army/mobile-github-action@main
+        uses: e2e-inc/mobile-github-action@v1
         with:
           mode: dynamic_agent
           app_id: ${{ needs.upload_android.outputs.app_id }}
